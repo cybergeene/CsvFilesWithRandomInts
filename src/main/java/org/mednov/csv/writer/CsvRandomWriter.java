@@ -17,7 +17,7 @@ public class CsvRandomWriter {
 
     public CsvRandomWriter(File file) {
         csvWriter = new CsvWriter(file, new CsvWriterSettings());
-        random = new Random(Integer.MAX_VALUE);
+        random = new Random();
     }
 
     /**
@@ -35,8 +35,8 @@ public class CsvRandomWriter {
     private void writeRow() {
 
         List<Integer> list = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
-            list.add(random.nextInt());
+        for (int i = 0; i < 1000; i++) {
+            list.add(random.nextInt(Integer.MAX_VALUE));
         }
         csvWriter.writeRow(list);
 
